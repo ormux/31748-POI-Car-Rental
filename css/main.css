@@ -1,0 +1,10 @@
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   background: limegreen;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}

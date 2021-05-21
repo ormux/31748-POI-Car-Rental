@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <title>Hertz-UTS</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/main.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <script>
+         let cart_array, total_price = 0;
+
+         $(document).ready(function() {
+            cart_array = JSON.parse(window.sessionStorage.getItem("cart"));
+            $.each(cart_array, function(index, car){
+               let card = 
+               `
+               <tr id="${car.id}">
+                  <td><img width="100px" height="100px" alt="${car.brand}-${car.model}-${car.model_year}" src="images/${car.image}"></td>
+                  <td>${car.brand}-${car.model}-${car.model_year}</td>
+                  <td>${car.price_per_day}</td>
+                  <td><input id="item-${car.id}" class="items" type="number" min="0" value="1" ></input></td>
+                  <td><button onclick="deleteItem(${car.id})" class="btn btn-primary">Delete</button></td>
+               </tr>
+               `;
+               $("#cart-items").append(card);
+            });
+         });
+      </script>
+      <script type="text/javascript" src="js/delete_item.js"></script>
+      <script type="text/javascript" src="js/calculate_total.js"></script>
+      <script type="text/javascript" src="js/validation.js"></script>
+      <script type="text/javascript" src="js/checkout.js"></script>
+      <div class="navbar">
+         <h3>Hertz-UTS</h3>
+         <h3>Rental Cart</h3>
+         <h3><button onclick="checkout()" class="btn btn-outline">Checkout</button></h3>
+      </div>
+      <table id="cart-items" class="text-center mx-auto" style="width: 50%">
+         <tr>
+            <th>Thumbnail</th>
+            <th>Vehicle</th>
+            <th>Price Per Day</th>
+            <th>Rental Days</th>
+            <th>Actions</th>
+         </tr>
+      </table>
+   </body>
+</html>

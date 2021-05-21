@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="nav-title">Hertz-UTS</h1>
+    <nav>
+        <ul>
+           <li>
+              <a href="index.jsp">Index</a>
+           </li>
+           <li style="display: <%= displayCreateProduct %>;">
+              <a href="create_product.jsp">Add Products</a>
+           </li>
+           <li>
+              <a href="register.jsp">Register</a>
+           </li>
+           <li style="display: <%= displayLogin %>;">
+              <a href="login.jsp">Login</a>
+           </li>
+           <li style="display: <%= displayUALCustomer%>;">
+              <a href="ual_customer.jsp">UAL Customer</a>
+           </li>
+           <li style="display: <%= displayUALStaff%>;">
+              <a href="ual_staff.jsp">UAL Staff</a>
+           </li>
+           <li style="display: <%= displayUALAdmin%>;">
+              <a href="ual_admin.jsp">UAL Admin</a>
+           </li>
+           <li>
+               <a href="cart.jsp">Cart</a>
+           </li>
+           <li style="float: right; display: <%= displayButtons %>;">
+               <table>
+                   <tr>
+                       <td style="display: <%= displayEditCustomer %>;">
+                           <a href="edit_customer.jsp">
+                               <button class="btn btn-outline-warning">Customer Account</button>
+                           </a>
+                       </td>
+                       <td style="display: <%= displayEditStaff %>;">
+                           <a href="edit_staff.jsp">
+                               <button class="btn btn-outline-warning">Staff Account</button>
+                           </a>
+                       </td>
+                       <td style="display: <%= displayEditAdmin %>;">
+                           <a href="edit_admin.jsp">
+                               <button class="btn btn-outline-warning">Admin Account</button>
+                           </a>
+                       </td>
+                       <td>
+                           <a href="LogoutServlet">
+                               <button class="btn btn-outline-warning">Logout</button>
+                           </a>
+                       </td>
+                    </tr>
+               </table>
+           </li>
+        </ul>
+    </nav>
+</div>

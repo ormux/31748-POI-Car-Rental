@@ -1,0 +1,51 @@
+<html>
+   <head>
+      <title>Hertz-UTS</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/main.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <script>
+         let cars_array = [];
+         let cart_array = [];
+
+         if(window.sessionStorage.getItem("cart"))
+            cart_array = JSON.parse(window.sessionStorage.getItem("cart"));
+
+         $(document).ready( function() {
+            $.getJSON("json/cars.json", function(data){
+               cars_array = data;
+               $.each(data, function(index, car) {
+                  let card = 
+                  `
+                     <div class="card" style="width: 20rem;">
+                       <img height="40%" class="card-img-top" src="images/${car.image}">
+                       <div class="card-body">
+                         <h5 class="card-title">${car.brand}-${car.model}-${car.model_year}</h5>
+                         <p class="card-text">Mileage: ${car.mileage}</p>
+                         <p class="card-text">Fuel Type: ${car.fuel_type}</p>
+                         <p class="card-text">Seats: ${car.seats}</p>
+                         <p class="card-text">Price/Day: ${car.price_per_day}</p>
+                         <p class="card-text">Available: ${car.availability}</p>
+                         <p class="card-text">Description: ${car.description}</p>
+                         <button class="btn btn-primary" onclick="addItem(${car.id})"">Add to Cart</button>
+                       </div>
+                     </div>
+                  `;
+               $("#grid").append(card);
+               });
+            });
+         });
+      </script>
+      <script type="text/javascript" src="js/add_item.js"></script>
+      <script type="text/javascript" src="js/serialize_cart.js"></script>
+      <div class="navbar">
+         <h3>Hertz-UTS</h3>
+         <h3>Car Rental</h3>
+         <h3><button onclick="serializeCart(cart_array)" class="btn btn-outline">View Cart</button></h3>
+      </div>
+      <div id="grid" class="row mx-auto"></div>
+   </body>
+</html>
