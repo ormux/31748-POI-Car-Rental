@@ -8,6 +8,7 @@
 <h4 align="center">technologies used</h4>
 <div align="center">
    <img alt="aws" src="https://img.shields.io/badge/-AWS-black?logo=amazon%20aws&logoColor=limegreen">
+   <img alt="bootstrap" src="https://img.shields.io/badge/-Bootstrap-black?logo=bootstrap&logoColor=limegreen">
    <img alt="javascript" src="https://img.shields.io/badge/-JavaScript-black?logo=javascript&logoColor=limegreen">
    <img alt="jquery" src="https://img.shields.io/badge/-jQuery-black?logo=jquery&logoColor=limegreen">
 </div>
